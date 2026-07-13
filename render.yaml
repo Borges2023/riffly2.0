@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: riffly-backend
+    env: node
+    repo: https://github.com/YOUR_GITHUB_USERNAME/riffly-full-stack
+    region: oregon
+    plan: free
+    buildCommand: npm install && npm --prefix apps/api run build
+    startCommand: npm --prefix apps/api start
+    healthCheckPath: /api/
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: MONGODB_URI
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: JWT_REFRESH_SECRET
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false

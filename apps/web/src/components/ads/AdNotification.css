@@ -1,0 +1,243 @@
+/* Ad Notification Styles */
+.ad-notification-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.ad-notification-container {
+  background: linear-gradient(135deg, var(--green-800) 0%, var(--green-900) 100%);
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Close Button */
+.ad-close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  z-index: 10001;
+  transition: all 0.2s ease;
+}
+
+.ad-close-button:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.ad-close-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ad-close-button.enabled {
+  background: rgba(255, 100, 100, 0.8);
+}
+
+.ad-close-button.enabled:hover {
+  background: rgba(255, 100, 100, 1);
+}
+
+/* Ad Content */
+.ad-content {
+  padding: 24px;
+  text-align: center;
+}
+
+.ad-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.ad-info {
+  color: white;
+}
+
+.ad-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 12px 0 8px 0;
+  color: var(--green-50);
+}
+
+.ad-description {
+  font-size: 14px;
+  color: var(--green-100);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.ad-cta-button {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: var(--green-900);
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(74, 222, 128, 0.3);
+}
+
+.ad-cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(74, 222, 128, 0.4);
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+}
+
+.ad-cta-button:active {
+  transform: translateY(0);
+}
+
+/* Footer */
+.ad-footer {
+  padding: 16px 24px;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ad-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--green-100);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.clock-icon {
+  color: #4ade80;
+  font-size: 14px;
+}
+
+.countdown-timer {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.countdown-complete {
+  color: #4ade80;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ad-premium-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #4ade80;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.premium-icon {
+  font-size: 14px;
+}
+
+/* Brand */
+.ad-brand {
+  position: absolute;
+  bottom: 8px;
+  left: 12px;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Mobile Responsivo */
+@media (max-width: 480px) {
+  .ad-notification-container {
+    max-width: 95%;
+  }
+
+  .ad-content {
+    padding: 16px;
+  }
+
+  .ad-image {
+    height: 150px;
+  }
+
+  .ad-title {
+    font-size: 18px;
+  }
+
+  .ad-description {
+    font-size: 13px;
+  }
+
+  .ad-cta-button {
+    padding: 10px 24px;
+    font-size: 13px;
+  }
+
+  .ad-footer {
+    padding: 12px 16px;
+  }
+
+  .ad-countdown {
+    font-size: 12px;
+  }
+}

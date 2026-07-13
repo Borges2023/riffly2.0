@@ -1,0 +1,16 @@
+{
+  "name": "Riffly",
+  "short_name": "Riffly",
+  "description": "Riffly é uma experiência moderna de descoberta musical para web e Android.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#020a07",
+  "theme_color": "#1db954",
+  "icons": [
+    {
+      "src": "/src/assets/logo/riffly.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

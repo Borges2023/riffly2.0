@@ -1,0 +1,36 @@
+{
+  "name": "riffly-full-stack",
+  "version": "1.1.0",
+  "description": "Plataforma moderna de streaming de música com React, Node.js e MongoDB",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:backend": "npm --prefix apps/api run dev",
+    "dev:frontend": "npm --prefix apps/web run dev",
+    "build:backend": "npm --prefix apps/api run build",
+    "build:frontend": "npm --prefix apps/web run build",
+    "build": "npm run build:frontend && npm run build:backend",
+    "start": "npm --prefix apps/api start",
+    "start:backend": "npm --prefix apps/api start",
+    "start:frontend": "npm --prefix apps/web preview",
+    "test": "npm --prefix apps/api run test",
+    "lint": "npm --prefix apps/web run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/riffly-full-stack"
+  },
+  "keywords": [
+    "music",
+    "streaming",
+    "react",
+    "node",
+    "mongodb"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x || 20.x"
+  }
+}
+

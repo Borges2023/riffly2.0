@@ -1,0 +1,6 @@
+{
+  "appId": "com.riffly.app",
+  "appName": "Riffly",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}

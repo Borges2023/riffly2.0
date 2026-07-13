@@ -1,0 +1,10 @@
+apiVersion: 1
+providers:
+  - name: "Riffly Backend Metrics"
+    orgId: 1
+    folder: "Riffly"
+    type: file
+    disableDeletion: false
+    editable: true
+    options:
+      path: /var/lib/grafana/dashboards

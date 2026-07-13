@@ -1,0 +1,36 @@
+/* src/styles/theme-light.css */
+/* Tema claro para Riffly */
+
+[data-theme="light"] {
+  --green-50: hsl(141deg 75% 10%);
+  --green-100: hsl(141deg 75% 15%);
+  --green-200: hsl(141deg 75% 30%);
+  --green-300: hsl(141deg 75% 40%);
+  --green-400: hsl(141deg 75% 50%);
+  --green-500: hsl(141deg 75% 55%);
+  --green-600: hsl(141deg 75% 65%);
+  --green-700: hsl(141deg 75% 75%);
+  --green-800: hsl(141deg 75% 85%);
+  --green-900: hsl(141deg 75% 90%);
+  --green-950: hsl(141deg 75% 95%);
+  --green-1000: hsl(141deg 75% 97.5%);
+  --green-1000-25: hsl(141deg 75% 97.5% / 25%);
+}
+
+/* Modo escuro padrão */
+[data-theme="dark"],
+:root {
+  --green-50: hsl(141deg 75% 90%);
+  --green-100: hsl(141deg 75% 85%);
+  --green-200: hsl(141deg 75% 70%);
+  --green-300: hsl(141deg 75% 60%);
+  --green-400: hsl(141deg 75% 50%);
+  --green-500: hsl(141deg 75% 45%);
+  --green-600: hsl(141deg 75% 35%);
+  --green-700: hsl(141deg 75% 25%);
+  --green-800: hsl(141deg 75% 15%);
+  --green-900: hsl(141deg 75% 10%);
+  --green-950: hsl(141deg 75% 5%);
+  --green-1000: hsl(141deg 75% 2.5%);
+  --green-1000-25: hsl(141deg 75% 2.5% / 25%);
+}

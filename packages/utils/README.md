@@ -1,0 +1,3 @@
+# utils
+
+Funções utilitárias compartilhadas.
