@@ -14,7 +14,9 @@
     "start:backend": "npm --prefix apps/api start",
     "start:frontend": "npm --prefix apps/web preview",
     "test": "npm --prefix apps/api run test",
-    "lint": "npm --prefix apps/web run lint"
+    "lint": "npm --prefix apps/web run lint",
+    "deploy:web": "vercel --cwd apps/web --prod",
+    "deploy:web:preview": "vercel --cwd apps/web"
   },
   "repository": {
     "type": "git",
@@ -33,4 +35,3 @@
     "node": "18.x || 20.x"
   }
 }
-

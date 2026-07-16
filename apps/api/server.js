@@ -11,6 +11,7 @@ import helmet from "helmet";
 import compression from "compression";
 import rateLimit from "express-rate-limit";
 import mongoSanitize from "express-mongo-sanitize";
+import fs from "fs";
 import dotenv from "dotenv";
 import { db } from "./connect.js";
 import { errorHandler, requestLogger } from "./middlewares/errorHandler.js";
@@ -107,13 +108,17 @@ app.get("/metrics", async (req, res) => {
   }
 });
 
-// ✅ SERVIR ARQUIVOS ESTÁTICOS DO FRONTEND
-app.use(express.static(path.join(__dirname, "../web/dist")));
+// ✅ SERVIR ARQUIVOS ESTÁTICOS DO FRONTEND QUANDO HOUVER BUILD LOCAL
+const frontendDist = path.join(__dirname, "../web/dist");
+const frontendIndex = path.join(frontendDist, "index.html");
+if (fs.existsSync(frontendIndex)) {
+  app.use(express.static(frontendDist));
 
-// ✅ FALLBACK PARA SPA
-app.get("*", (request, response) => {
-  response.sendFile(path.join(__dirname, "../web/dist/index.html"));
-});
+  // ✅ FALLBACK PARA SPA
+  app.get("*", (request, response) => {
+    response.sendFile(frontendIndex);
+  });
+}
 
 // ✅ TRATAMENTO DE ERROS GLOBAL
 app.use(errorHandler);

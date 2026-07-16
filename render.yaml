@@ -5,14 +5,14 @@ services:
     repo: https://github.com/YOUR_GITHUB_USERNAME/riffly-full-stack
     region: oregon
     plan: free
-    buildCommand: npm install && npm --prefix apps/api run build
+    buildCommand: npm install
     startCommand: npm --prefix apps/api start
     healthCheckPath: /api/
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 3001
+        value: 10000
       - key: MONGODB_URI
         sync: false
       - key: REDIS_URL

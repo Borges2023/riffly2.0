@@ -42,3 +42,5 @@ yarn-debug.log*
 *.mp3
 *.rar
 *.7z
+.vercel
+.env*
