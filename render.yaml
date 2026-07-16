@@ -2,7 +2,7 @@ services:
   - type: web
     name: riffly-backend
     env: node
-    repo: https://github.com/YOUR_GITHUB_USERNAME/riffly-full-stack
+    repo: https://github.com/Borges2023/riffly2.0
     region: oregon
     plan: free
     buildCommand: npm install
