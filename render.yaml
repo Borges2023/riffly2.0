@@ -5,7 +5,8 @@ services:
     repo: https://github.com/Borges2023/riffly2.0
     region: oregon
     plan: free
-    buildCommand: npm install
+    buildCommand: npm install && cd apps/api && npm install
+    startCommand: cd apps/api && node server.js
     startCommand: npm --prefix apps/api start
     healthCheckPath: /api/
     envVars:
