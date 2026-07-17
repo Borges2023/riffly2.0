@@ -25,6 +25,7 @@ import {
   faUserCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { getArtists, getSongs, normalizeCatalogItems } from "../../../../database/apiFallback.js";
+import { getArtists, getSongs, normalizeCatalogItems } from "../data/apiFallback.js";
 import { Card, Search } from "../design-system/index.js";
 import "../styles/platform.css";
 
