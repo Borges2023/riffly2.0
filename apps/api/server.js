@@ -60,9 +60,10 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 // Limite de taxa para evitar abusos
-app.use(rateLimit({
-  windowMs: 1000 * 60,
-  max: 150,
+// Geral
+app.use(rateLimit({ windowMs: 1000 * 60, max: 500 }));
+// Uploads separados
+app.use("/api/platform/upload", rateLimit({ windowMs: 1000 * 60, max: 30 }));
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Muitas requisições. Tente novamente em alguns segundos.' }
