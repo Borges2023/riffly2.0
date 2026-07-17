@@ -1,21 +1,21 @@
-// JavaScript Assincrono
-// await async
-// Fullfilled
-import { MongoClient } from "mongodb";
+// connect.js
+import mongoose from "mongoose";
 
-// URI será carregada de variáveis de ambiente quando dotenv estiver disponível
-// Por enquanto, usando .env.example como referência
-const URI = process.env.MONGODB_URI || 
-  "mongodb+srv://fullstackjornada:qojI71xVU2aV8UKC@cluster0.v1qra.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const connectDB = async () => {
+  try {
+    const conn = await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log(`✅ MongoDB conectado: ${conn.connection.host}`);
+  } catch (error) {
+    console.error("❌ Erro ao conectar ao MongoDB:", error.message);
+    process.exit(1); // encerra a aplicação se não conectar
+  }
+};
 
-const DB_NAME = process.env.DB_NAME || "spotifyAula";
+// Executa a conexão imediatamente
+connectDB();
 
-if (!URI) {
-  throw new Error("MONGODB_URI não está definida");
-}
-
-const client = new MongoClient(URI);
-
-export const db = client.db(DB_NAME);
-
-// Será atualizado com dotenv na v1.1 quando rede estiver disponível
+// Exporta a instância para ser usada em outros módulos
+export { connectDB };
