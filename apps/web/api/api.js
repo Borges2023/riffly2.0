@@ -1,14 +1,13 @@
-// Fetch ou Axios
 import axios from "axios";
 
-// const { NODE_ENV } = process.env;
-// const URL = "http://localhost:3001/api";
-const URL = "https://deploy-jornada-full-stack.onrender.com/api";
+const URL = import.meta.env.VITE_API_URL || "https://deploy-jornada-full-stack.onrender.com/api";
 
-const responseArtists = await axios.get(`${URL}/artists`);
-const responseSongs = await axios.get(`${URL}/songs`);
+export async function fetchArtists() {
+  const res = await axios.get(`${URL}/artists`);
+  return res.data;
+}
 
-export const artistArray = responseArtists.data;
-export const songsArray = responseSongs.data;
-
-// console.log(responseArtists.data);
+export async function fetchSongs() {
+  const res = await axios.get(`${URL}/songs`);
+  return res.data;
+}
