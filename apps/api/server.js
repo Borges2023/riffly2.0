@@ -53,7 +53,12 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));
-app.use(helmet());
+
+app.use(helmet({
+  contentSecurityPolicy: NODE_ENV === "production" ? undefined : false,
+  crossOriginEmbedderPolicy: false,
+}));
+
 app.use(compression());
 app.use(mongoSanitize());
 app.use(express.json({ limit: '10mb' }));
