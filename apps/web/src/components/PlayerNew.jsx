@@ -116,6 +116,20 @@ const Player = ({ currentSong: currentSongProp, songs: songsProp = [] }) => {
       }
     };
 
+    const handleError = (e) => {
+  console.error("Erro no áudio:", e);
+  // Tentar próxima fonte de streaming
+  const nextIdx = sourceIndexRef.current + 1;
+  if (nextIdx < audioSources.length) {
+    sourceIndexRef.current = nextIdx;
+    audio.src = audioSources[nextIdx];
+    audio.load();
+    audio.play().catch(() => setIsPlaying(false));
+  }
+};
+audio.addEventListener("error", handleError);
+
+
     audio.addEventListener("timeupdate", handleTimeUpdate);
     audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audio.addEventListener("ended", handleEnded);
