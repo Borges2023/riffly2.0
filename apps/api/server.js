@@ -33,9 +33,11 @@ let CORS_ORIGIN = process.env.CORS_ORIGIN;
 if (!CORS_ORIGIN) {
   // Em desenvolvimento, aceitar múltiplas portas
   if (NODE_ENV === "development") {
-    CORS_ORIGIN = ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175"];
-  } else {
-    CORS_ORIGIN = "https://seu-dominio.com";
+  const CORS_ORIGIN = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(",").map(s => s.trim())
+  : NODE_ENV === "development"
+    ? ["http://localhost:5173", "http://localhost:5174", "http://localhost:5175"]
+    : ["https://riffly-musical.vercel.app"]; // seu domínio real da Vercel
   }
 }
 
