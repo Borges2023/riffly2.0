@@ -20,11 +20,13 @@ import songsRouter from "./routes/songs.js";
 import adminRouter from "./routes/admin.js";
 import platformRouter from "./routes/platform.js";
 import { collectDefaultMetrics, register } from "prom-client";
+import { fileURLToPath } from "url";
 
 dotenv.config();
 
 // Configuração
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const PORT = process.env.PORT || 3001;
 const NODE_ENV = process.env.NODE_ENV || "development";
 
